@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script src="interval.js"></script>
+        <script>
+            var lastUpdate = new Date().getTime(),
+                sumTime = 0;
+            function every5SecondsAddTime() {
+                var wait, currentTime;
+
+                el = document.getElementById('block');
+
+                currentTime = new Date().getTime();
+                wait = currentTime - lastUpdate;
+                sumTime += wait;
+                lastUpdate = currentTime;
+
+                el.innerHTML = el.innerHTML + '<p>' + wait + ' milliseconds from last iteration</p>';
+            }
+
+            function removeIntervalSubscribe() {
+                intervalJS.off(intervalJS.EVERY_1_SEC, every5SecondsAddTime);
+                el.innerHTML = el.innerHTML + '<p>Stop interval. Exact time: ' + sumTime + '</p>'
+            }
+
+            function after15SecondsCalledOnceMethod() {
+                el.innerHTML = el.innerHTML + '<p>Once call after 15 seconds</p>'
+            }
+
+            intervalJS.on(intervalJS.EVERY_1_SEC, every5SecondsAddTime);
+            intervalJS.once(intervalJS.EVERY_15_SEC, after15SecondsCalledOnceMethod);
+            intervalJS.once(intervalJS.EVERY_60_SEC, removeIntervalSubscribe);
+
+        </script>
+    </head>
+    <body>
+        <div id="block">
+            <p>Wait 5 seconds</p>
+        </div>
+    </body>
+
+</html>
