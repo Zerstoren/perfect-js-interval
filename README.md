@@ -1,10 +1,10 @@
 # Interval JS
  Low CPU usage
 
- Work when browser not in focus
- When window is focused - maximal deviation 50 ms (when CPU is empty).
- Normal deviation with focused window 0-1 ms.
- When window is blured - maximal deviation 1 second.
+ 1. Work when browser not in focus
+ 2. When window is focused - maximal deviation 50 ms (when CPU is empty).
+ 3. Normal deviation with focused window 0-1 ms.
+ 4. When window is blured - maximal deviation 1 second.
 
  Using:
 
