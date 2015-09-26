@@ -30,5 +30,7 @@ window.intervalJS.once(
 
 // stop handling interval events
 var fn = function() {};
-window.intervalJS.on(window.intervalJS.EVERY_1_SECONDS);
+window.intervalJS.on(window.intervalJS.EVERY_1_SECONDS, fn);
+
+window.intervalJS.off(window.intervalJS.EVERY_1_SECONDS, fn);
 ```
